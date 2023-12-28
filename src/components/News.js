@@ -52,15 +52,15 @@ const News = (props) => {
   };
 
   return (
-    <>
-      <h1 className='text-center ' style={{ margin: '40px 0px', marginTop:'90px' }}>TAZAKHABAR - Top '{capitalizeFirstletter(props.category)}' Headlines</h1>
+    <div className='d-flex flex-column bg-dark bg-gradient ' style={{marginTop:'0', alignItems:'center'}}>
+      <h1 className='text-center ' style={{position:'absolute', margin: '90px 0 0 0', color:"whitesmoke" }}>TAZAKHABAR - Top '{capitalizeFirstletter(props.category)}' Headlines</h1>
       <InfiniteScroll
         dataLength={articles.length}
         next={fetchMoreData}
         hasMore={articles.length !== totalResults}
         loader={loading && <Spinner />}
       >
-        <div className="container">
+        <div className="container" style={{position:'relative', marginTop:'10rem'}}>
           <div className="row my-2" >
             {articles.map((element) => {
               return <div className="col-md-4 my-4" key={element.url}>
@@ -70,7 +70,7 @@ const News = (props) => {
           </div>
         </div>
       </InfiniteScroll>
-    </>
+    </div>
   )
 }
 

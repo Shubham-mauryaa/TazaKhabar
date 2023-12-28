@@ -1,8 +1,7 @@
-// import logo from './logo.svg';
-import './App.css';
-import Navbar from './components/Navbar';
 import React from 'react'
+import Navbar from './components/Navbar';
 import News from './components/News';
+import Home from './components/Home';
 import LoadingBar from 'react-top-loading-bar'
 import { useState } from 'react';
 
@@ -24,12 +23,12 @@ export default function App()  {
           <Navbar />
           <LoadingBar
           height={3}
-            color='#f11946'
+            color='whitesmoke'
             progress={progress}
             // onLoaderFinished={() => setProgress(0)}
           />
           <Routes>
-            <Route exact path="/" element={<News setProgress={setProgress} apiKey = {apiKey} key="general" pageSize={pageSize} country="in" category="general" />} />
+            <Route exact path="/" element={<Home/>} />
             <Route exact path="/general" element={<News setProgress={setProgress} apiKey = {apiKey} key="general" pageSize={pageSize} country="in" category="general" />} />
             <Route exact path="/business" element={<News setProgress={setProgress} apiKey = {apiKey} key="business" pageSize={pageSize} country="in" category="business" />} />
             <Route exact path="/entertainment" element={<News setProgress={setProgress} apiKey = {apiKey} key="entertainment" pageSize={pageSize} country="in" category="entertainment" />} />
